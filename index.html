@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marga & Jorge — Nuestra Boda</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Paleta de colores personalizada */
+            --azul-cielo: #B1F8F2;        /* Color principal */
+            --lima: #FFFC99;              /* Color secundario */
+            --verde: #BCD39C;             /* Color complementario */
+            --menta: #EAFDCF;             /* Color complementario claro */
+            --verde-oscuro: #8E8358;      /* Detalles pequeños */
+            
+            /* Tonos oscuros para buen contraste (Nivel AA) */
+            --texto-oscuro: #2d3e2f;      /* Para texto sobre fondos claros */
+            --verde-oscuro-intenso: #6a6340; /* Para detalles destacados */
+            
+            /* Variantes con transparencia */
+            --azul-cielo-light: #d8fcf9;
+            --azul-cielo-dark: #8de5df;
+            --lima-light: #fffee6;
+            --menta-dark: #d4f5bb;
+            --verde-light: #e1efd0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--menta);
+            color: var(--texto-oscuro);
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Animaciones personalizadas */
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Estilos para colapsables */
+        .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+        }
+        .collapse-content.open {
+            max-height: 1000px;
+            opacity: 1;
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        
+        /* Clases de utilidad para colores personalizados */
+        .bg-azul-cielo { background-color: var(--azul-cielo); }
+        .bg-azul-cielo-light { background-color: var(--azul-cielo-light); }
+        .bg-azul-cielo-dark { background-color: var(--azul-cielo-dark); }
+        .bg-lima { background-color: var(--lima); }
+        .bg-lima-light { background-color: var(--lima-light); }
+        .bg-verde { background-color: var(--verde); }
+        .bg-verde-light { background-color: var(--verde-light); }
+        .bg-menta { background-color: var(--menta); }
+        .bg-menta-dark { background-color: var(--menta-dark); }
+        .bg-verde-oscuro { background-color: var(--verde-oscuro); }
+        .bg-texto-oscuro { background-color: var(--texto-oscuro); }
+        
+        .text-azul-cielo { color: var(--azul-cielo); }
+        .text-lima { color: var(--lima); }
+        .text-verde { color: var(--verde); }
+        .text-menta { color: var(--menta); }
+        .text-verde-oscuro { color: var(--verde-oscuro); }
+        .text-verde-oscuro-intenso { color: var(--verde-oscuro-intenso); }
+        .text-texto-oscuro { color: var(--texto-oscuro); }
+        
+        .border-azul-cielo { border-color: var(--azul-cielo); }
+        .border-azul-cielo-dark { border-color: var(--azul-cielo-dark); }
+        .border-lima { border-color: var(--lima); }
+        .border-verde { border-color: var(--verde); }
+        .border-verde-oscuro { border-color: var(--verde-oscuro); }
+        .border-texto-oscuro { border-color: var(--texto-oscuro); }
+        
+        .hover\:bg-azul-cielo:hover { background-color: var(--azul-cielo); }
+        .hover\:bg-azul-cielo-dark:hover { background-color: var(--azul-cielo-dark); }
+        .hover\:bg-lima-light:hover { background-color: var(--lima-light); }
+        .hover\:bg-texto-oscuro:hover { background-color: var(--texto-oscuro); }
+        .hover\:text-texto-oscuro:hover { color: var(--texto-oscuro); }
+        .hover\:text-verde-oscuro:hover { color: var(--verde-oscuro); }
+        .group:hover .group-hover\:text-texto-oscuro { color: var(--texto-oscuro); }
+        .group:hover .group-hover\:text-verde-oscuro { color: var(--verde-oscuro); }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navegación Fija -->
+    <nav class="fixed top-0 w-full bg-lima-light backdrop-blur-sm shadow-sm z-50 border-b border-azul-cielo">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="font-serif text-2xl font-bold text-texto-oscuro tracking-wider cursor-pointer" onclick="window.scrollTo(0,0)">
+                    Marga & Jorge
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#events" class="text-lg font-medium text-verde-oscuro hover:text-texto-oscuro transition-colors">Ceremonia</a>
+                    <a href="#transport" class="text-lg font-medium text-verde-oscuro hover:text-texto-oscuro transition-colors">Autobuses</a>
+                    <a href="#city" class="text-lg font-medium text-verde-oscuro hover:text-texto-oscuro transition-colors">La Ciudad</a>
+                    <a href="#rsvp" class="bg-azul-cielo text-texto-oscuro px-5 py-2 rounded-full hover:bg-azul-cielo-dark shadow-md transition-colors text-lg font-medium">Confirmar</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-texto-oscuro p-2 focus:outline-none">
+                        <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-lima border-t border-azul-cielo shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#events" class="mobile-link block px-3 py-4 text-xl font-medium text-texto-oscuro hover:bg-lima-light rounded-md">Ceremonia</a>
+                <a href="#transport" class="mobile-link block px-3 py-4 text-xl font-medium text-texto-oscuro hover:bg-lima-light rounded-md">Autobuses</a>
+                <a href="#city" class="mobile-link block px-3 py-4 text-xl font-medium text-texto-oscuro hover:bg-lima-light rounded-md">La Ciudad</a>
+                <a href="#rsvp" class="mobile-link block px-3 py-4 text-xl font-bold bg-azul-cielo text-texto-oscuro rounded-md text-center">Confirmar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center bg-azul-cielo overflow-hidden">
+        <div class="absolute inset-0 bg-azul-cielo">
+           <img 
+            src="fondo-web.jpeg" 
+            alt="Fondo Boda" 
+            class="w-full h-full object-cover opacity-40 mix-blend-multiply"
+           />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-texto-oscuro/80 to-transparent"></div>
+        
+        <div class="relative z-10 text-center px-4 fade-in-up">
+          <p class="text-xl md:text-2xl text-lima font-medium mb-4 tracking-widest uppercase">¡Nos Casamos!</p>
+          <h1 class="text-5xl md:text-8xl font-serif text-white font-bold mb-6 drop-shadow-lg">
+            Marga & Jorge
+          </h1>
+          <div class="inline-block border-y-2 border-lima py-4 px-8">
+            <p class="text-2xl md:text-4xl text-lima font-serif">26 de Septiembre, 2026</p>
+          </div>
+          <p class="text-verde-light mt-4 text-xl">Cuenca</p>
+        </div>
+    </header>
+
+    <!-- Eventos / Cronograma -->
+    <section id="events" class="py-16 px-4 md:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-serif text-center text-texto-oscuro mb-10 border-b-2 border-azul-cielo w-fit mx-auto pb-2">
+                Nuestra Boda
+            </h2>
+
+            <!-- Card Viernes -->
+            <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-verde-light mb-8 overflow-hidden">
+                <div class="p-6 flex flex-col md:flex-row md:items-center justify-between cursor-pointer hover:bg-azul-cielo-light transition-colors select-none group accordion-header">
+                    <div>
+                        <h3 class="text-2xl font-serif text-verde-oscuro font-bold group-hover:text-texto-oscuro transition-colors">Viernes</h3>
+                        <span class="text-lg text-verde-oscuro-intenso font-medium">25 Septiembre, 2026</span>
+                    </div>
+                    <div class="mt-4 md:mt-0 flex items-center text-verde-oscuro font-medium">
+                        <span class="mr-2 text-sm uppercase tracking-wider label-text">Ver horario</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="collapse-content px-6 pb-6 pt-2 border-t border-verde-light space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-lima rounded-full flex-shrink-0 flex items-center justify-center text-texto-oscuro">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-texto-oscuro">12:00 - Ceremonia Civil</h4>
+                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">Un acto íntimo en el ayuntamiento para formalizar el 'Sí, quiero'.</p>
+                            <p class="text-sm text-verde-oscuro-intenso mt-2 font-semibold flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                Ayuntamiento de Cuenca
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-lima rounded-full flex-shrink-0 flex items-center justify-center text-texto-oscuro">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-texto-oscuro">19:00 - Preboda Informal</h4>
+                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">Unas cervezas y tapas para romper el hielo antes del gran día. ¡Todo el mundo bienvenido!</p>
+                            <p class="text-sm text-verde-oscuro-intenso mt-2 font-semibold flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                Bar La Plaza Central
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Sábado -->
+            <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-verde-light mb-8 overflow-hidden">
+                <div class="p-6 flex flex-col md:flex-row md:items-center justify-between cursor-pointer hover:bg-azul-cielo-light transition-colors select-none group accordion-header">
+                    <div>
+                        <h3 class="text-2xl font-serif text-verde-oscuro font-bold group-hover:text-texto-oscuro transition-colors">Sábado</h3>
+                        <span class="text-lg text-verde-oscuro-intenso font-medium">26 Septiembre, 2026</span>
+                    </div>
+                    <div class="mt-4 md:mt-0 flex items-center text-verde-oscuro font-medium">
+                        <span class="mr-2 text-sm uppercase tracking-wider label-text">Ver horario</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="collapse-content px-6 pb-6 pt-2 border-t border-verde-light space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-lima rounded-full flex-shrink-0 flex items-center justify-center text-texto-oscuro">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-texto-oscuro">17:30 - Ceremonia Simbólica</h4>
+                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">La ceremonia emotiva con nuestros amigos y familia en los jardines.</p>
+                            <p class="text-sm text-verde-oscuro-intenso mt-2 font-semibold flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                Finca Los Olivos
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-lima rounded-full flex-shrink-0 flex items-center justify-center text-texto-oscuro">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-texto-oscuro">19:00 - Cóctel y Banquete</h4>
+                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">Cena, brindis y mucha comida rica.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-lima rounded-full flex-shrink-0 flex items-center justify-center text-texto-oscuro">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-texto-oscuro">23:00 - Fiesta y Barra Libre</h4>
+                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">¡A bailar hasta que el cuerpo aguante!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Autobuses -->
+    <section id="transport" class="py-16 px-4 md:px-8 bg-azul-cielo-light">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-serif text-center text-texto-oscuro mb-10 border-b-2 border-azul-cielo w-fit mx-auto pb-2">
+                Autobuses
+            </h2>
+            <div class="bg-white/80 p-8 rounded-xl shadow-sm border-l-8 border-azul-cielo">
+                <div class="flex items-start mb-4">
+                    <div class="p-3 bg-lima rounded-lg text-texto-oscuro mr-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-texto-oscuro mb-2">Olvídate del coche</h3>
+                        <p class="text-lg text-verde-oscuro mb-6">
+                            Queremos que disfrutéis al máximo sin preocupaciones. Pondremos autobuses a vuestra disposición.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-menta p-5 rounded-lg border border-verde">
+                        <h4 class="font-bold text-xl mb-3 text-texto-oscuro">Ida (Hacia la Finca)</h4>
+                        <ul class="space-y-3 text-lg text-verde-oscuro">
+                            <li class="flex justify-between border-b border-verde pb-2"><span>Plaza Mayor</span><span class="font-bold">16:30</span></li>
+                            <li class="flex justify-between border-b border-verde pb-2"><span>Hotel Central</span><span class="font-bold">16:45</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-menta p-5 rounded-lg border border-verde">
+                        <h4 class="font-bold text-xl mb-3 text-texto-oscuro">Vuelta (Al centro)</h4>
+                        <ul class="space-y-3 text-lg text-verde-oscuro">
+                            <li class="flex justify-between border-b border-verde pb-2"><span>Primer Turno</span><span class="font-bold">01:00</span></li>
+                            <li class="flex justify-between border-b border-verde pb-2"><span>Segundo Turno</span><span class="font-bold">03:30</span></li>
+                            <li class="flex justify-between border-b border-verde pb-2"><span>Cierre de fiesta</span><span class="font-bold">05:00</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- La Ciudad - Grid de Tarjetas -->
+    <section id="city" class="py-16 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-serif text-center text-texto-oscuro mb-10 border-b-2 border-azul-cielo w-fit mx-auto pb-2">
+                Descubre Cuenca
+            </h2>
+            <p class="text-center text-xl text-verde-oscuro mb-10">Para los que venís de fuera, hemos recopilado nuestros sitios favoritos.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="city-card bg-white rounded-xl overflow-hidden shadow-lg border border-verde-light cursor-pointer group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1548957175-84f0f9af659e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Qué Ver" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-texto-oscuro/80 to-transparent flex items-end p-4">
+                            <h4 class="text-xl font-bold text-lima drop-shadow-md flex items-center w-full justify-between">
+                                Qué Ver
+                                <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow bg-white">
+                        <p class="text-verde-oscuro font-medium mb-3">El casco antiguo colgado.</p>
+                        <div class="collapse-content">
+                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Cuenca es mágica. No os podéis perder las Casas Colgadas y el Puente de San Pablo para las mejores fotos.</p>
+                            <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2">Recomendamos:</h5>
+                            <ul class="space-y-2 text-sm text-verde-oscuro">
+                                <li>• Mirador del Cerro del Socorro</li>
+                                <li>• Museo de Arte Abstracto</li>
+                            </ul>
+                        </div>
+                        <p class="expand-label text-xs text-verde-oscuro-intenso mt-3 text-center group-hover:text-texto-oscuro">Pulsa para ver más</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="city-card bg-white rounded-xl overflow-hidden shadow-lg border border-verde-light cursor-pointer group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dónde Comer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-texto-oscuro/80 to-transparent flex items-end p-4">
+                            <h4 class="text-xl font-bold text-lima drop-shadow-md flex items-center w-full justify-between">
+                                Dónde Comer
+                                <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow bg-white">
+                        <p class="text-verde-oscuro font-medium mb-3">Gastronomía manchega top.</p>
+                        <div class="collapse-content">
+                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Aquí se come fuerte. El morteruelo y el ajoarriero son obligatorios. Reservad con tiempo.</p>
+                            <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2">Recomendamos:</h5>
+                            <ul class="space-y-2 text-sm text-verde-oscuro">
+                                <li>• Figón del Huécar</li>
+                                <li>• Taberna Albero</li>
+                            </ul>
+                        </div>
+                        <p class="expand-label text-xs text-verde-oscuro-intenso mt-3 text-center group-hover:text-texto-oscuro">Pulsa para ver más</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="city-card bg-white rounded-xl overflow-hidden shadow-lg border border-verde-light cursor-pointer group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Peluquerías" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-texto-oscuro/80 to-transparent flex items-end p-4">
+                            <h4 class="text-xl font-bold text-lima drop-shadow-md flex items-center w-full justify-between">
+                                Peluquerías
+                                <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow bg-white">
+                        <p class="text-verde-oscuro font-medium mb-3">Para estar radiantes.</p>
+                        <div class="collapse-content">
+                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Aquí tenéis un par de sitios de confianza cerca de los hoteles principales.</p>
+                            <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2">Recomendamos:</h5>
+                            <ul class="space-y-2 text-sm text-verde-oscuro">
+                                <li>• Llongueras (C/ Carretería)</li>
+                                <li>• Salón Chic</li>
+                            </ul>
+                        </div>
+                        <p class="expand-label text-xs text-verde-oscuro-intenso mt-3 text-center group-hover:text-texto-oscuro">Pulsa para ver más</p>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="city-card bg-white rounded-xl overflow-hidden shadow-lg border border-verde-light cursor-pointer group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Habitación de Hotel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-texto-oscuro/80 to-transparent flex items-end p-4">
+                            <h4 class="text-xl font-bold text-lima drop-shadow-md flex items-center w-full justify-between">
+                                Alojamiento
+                                <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow bg-white">
+                        <p class="text-verde-oscuro font-medium mb-3">Donde descansar.</p>
+                        <div class="collapse-content">
+                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Hoteles bien situados y con buen precio en el centro de Cuenca.</p>
+                            <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2">Recomendamos:</h5>
+                            <ul class="space-y-2 text-sm text-verde-oscuro">
+                                <li>• Hotel Parador de Cuenca</li>
+                                <li>• NH Ciudad de Cuenca</li>
+                            </ul>
+                        </div>
+                        <p class="expand-label text-xs text-verde-oscuro-intenso mt-3 text-center group-hover:text-texto-oscuro">Pulsa para ver más</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="relative py-20 text-white text-center px-4 overflow-hidden">
+        <div class="absolute inset-0">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Fondo Confirmación" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-texto-oscuro/85"></div>
+        </div>
+
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">¿Nos acompañas?</h2>
+          <p class="text-xl md:text-2xl mb-10 text-verde-light">Por favor, confirma tu asistencia antes del 1 de Julio de 2026.</p>
+          
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSflfo29990iCAB9jZw85WqzuyM1aFHbB04cFPa3oq0dpTLnJw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="inline-block bg-lima text-texto-oscuro font-bold text-xl md:text-2xl px-10 py-5 rounded-full hover:bg-azul-cielo hover:scale-105 transition-all duration-200 shadow-2xl">
+            Confirmar Asistencia Aquí
+          </a>
+          <p class="mt-6 text-verde-light text-sm">Serás redirigido a un formulario de Google seguro.</p>
+        </div>
+    </section>
+
+    <footer class="bg-texto-oscuro text-verde-light py-10 text-center border-t border-verde-oscuro">
+        <p class="font-serif text-lg mb-2 text-lima">Marga & Jorge — 2026</p>
+        <p class="text-sm text-lima">Hecho con ❤️ para nuestra familia y amigos.</p>
+    </footer>
+
+    <!-- Scripts para lógica de interacción -->
+    <script>
+        // --- Menú Móvil ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+            }
+        });
+
+        // Cerrar menú al hacer click en un enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+            });
+        });
+
+        // --- Acordeones (Tarjetas de Evento) ---
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const arrow = header.querySelector('.arrow-icon');
+                const label = header.querySelector('.label-text');
+                
+                const isOpen = content.classList.toggle('open');
+                arrow.classList.toggle('rotate-180', isOpen);
+                
+                if(label) {
+                    label.textContent = isOpen ? 'Ocultar detalles' : 'Ver horario';
+                }
+            });
+        });
+
+        // --- Tarjetas de Ciudad (Desplegables) ---
+        document.querySelectorAll('.city-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const content = card.querySelector('.collapse-content');
+                const arrow = card.querySelector('.arrow-icon');
+                const label = card.querySelector('.expand-label');
+                
+                const isOpen = content.classList.toggle('open');
+                arrow.classList.toggle('rotate-180', isOpen);
+                
+                if(label) {
+                    label.style.display = isOpen ? 'none' : 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
