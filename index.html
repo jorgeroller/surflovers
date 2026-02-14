@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             /* Paleta de colores personalizada */
@@ -84,6 +86,7 @@
         .border-azul-cielo-dark { border-color: var(--azul-cielo-dark); }
         .border-lima { border-color: var(--lima); }
         .border-verde { border-color: var(--verde); }
+        .border-verde-light { border-color: var(--verde-light); }
         .border-verde-oscuro { border-color: var(--verde-oscuro); }
         .border-texto-oscuro { border-color: var(--texto-oscuro); }
         
@@ -103,7 +106,7 @@
     <nav class="fixed top-0 w-full bg-lima-light backdrop-blur-sm shadow-sm z-50 border-b border-azul-cielo">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="font-serif text-2xl font-bold text-texto-oscuro tracking-wider cursor-pointer" onclick="window.scrollTo(0,0)">
+                <div class="font-serif text-2xl font-bold text-verde-oscuro-intenso tracking-wider cursor-pointer" onclick="window.scrollTo(0,0)">
                     Marga & Jorge
                 </div>
                 
@@ -112,15 +115,14 @@
                     <a href="#events" class="text-lg font-medium text-verde-oscuro hover:text-texto-oscuro transition-colors">Ceremonia</a>
                     <a href="#transport" class="text-lg font-medium text-verde-oscuro hover:text-texto-oscuro transition-colors">Autobuses</a>
                     <a href="#city" class="text-lg font-medium text-verde-oscuro hover:text-texto-oscuro transition-colors">La Ciudad</a>
+                    <a href="#gift" class="text-lg font-medium text-verde-oscuro hover:text-texto-oscuro transition-colors">Regalo</a>
                     <a href="#rsvp" class="bg-azul-cielo text-texto-oscuro px-5 py-2 rounded-full hover:bg-azul-cielo-dark shadow-md transition-colors text-lg font-medium">Confirmar</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button id="menu-btn" class="text-texto-oscuro p-2 focus:outline-none">
-                        <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
+                        <i id="menu-icon" class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
@@ -156,7 +158,7 @@
           <div class="inline-block border-y-2 border-lima py-4 px-8">
             <p class="text-2xl md:text-4xl text-lima font-serif">26 de Septiembre, 2026</p>
           </div>
-          <p class="text-verde-light mt-4 text-xl">Cuenca</p>
+          <p class="text-white mt-4 text-3xl">CUENCA</p>
         </div>
     </header>
 
@@ -176,35 +178,33 @@
                     </div>
                     <div class="mt-4 md:mt-0 flex items-center text-verde-oscuro font-medium">
                         <span class="mr-2 text-sm uppercase tracking-wider label-text">Ver horario</span>
-                        <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <i class="fas fa-chevron-down text-xl transform transition-transform duration-300 arrow-icon"></i>
                     </div>
                 </div>
                 <div class="collapse-content px-6 pb-6 pt-2 border-t border-verde-light space-y-6">
                     <div class="flex gap-4">
                         <div class="w-10 h-10 bg-lima rounded-full flex-shrink-0 flex items-center justify-center text-texto-oscuro">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                            <i class="fas fa-heart text-xl text-verde-oscuro-intenso"></i>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-texto-oscuro">12:00 - Ceremonia Civil</h4>
-                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">Un acto íntimo en el ayuntamiento para formalizar el 'Sí, quiero'.</p>
+                            <h4 class="text-xl font-bold text-texto-oscuro">17:30 - Ceremonia Católica informal</h4>
+                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">Esta ceremonia es opcional ya que para nosotros la gran ceremonia será el sábado, pero si te animas ¡te esperamos con los brazos abiertos!</p>
                             <p class="text-sm text-verde-oscuro-intenso mt-2 font-semibold flex items-center">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                Ayuntamiento de Cuenca
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <a href="https://maps.app.goo.gl/zPuwVJW5Qsw9CsZ18" target="_blank" class="hover:text-texto-oscuro transition-colors">Parroquia de la Virgen de la Luz</a>
                             </p>
                         </div>
                     </div>
                     <div class="flex gap-4">
                         <div class="w-10 h-10 bg-lima rounded-full flex-shrink-0 flex items-center justify-center text-texto-oscuro">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <i class="fas fa-beer text-xl text-verde-oscuro-intenso"></i>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-texto-oscuro">19:00 - Preboda Informal</h4>
-                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">Unas cervezas y tapas para romper el hielo antes del gran día. ¡Todo el mundo bienvenido!</p>
+                            <h4 class="text-xl font-bold text-texto-oscuro">19:00 - Preboda</h4>
+                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">Unas cervezas y tapas para conocernos y romper el hielo antes del gran día. ¡Todo el mundo bienvenido!</p>
                             <p class="text-sm text-verde-oscuro-intenso mt-2 font-semibold flex items-center">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                Bar La Plaza Central
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <a href="https://maps.app.goo.gl/4sJQwbdr6XYLVMMW9" target="_blank" class="hover:text-texto-oscuro transition-colors">La Ceca</a>
                             </p>
                         </div>
                     </div>
@@ -220,40 +220,38 @@
                     </div>
                     <div class="mt-4 md:mt-0 flex items-center text-verde-oscuro font-medium">
                         <span class="mr-2 text-sm uppercase tracking-wider label-text">Ver horario</span>
-                        <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <i class="fas fa-chevron-down text-xl transform transition-transform duration-300 arrow-icon"></i>
                     </div>
                 </div>
                 <div class="collapse-content px-6 pb-6 pt-2 border-t border-verde-light space-y-6">
                     <div class="flex gap-4">
                         <div class="w-10 h-10 bg-lima rounded-full flex-shrink-0 flex items-center justify-center text-texto-oscuro">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <i class="fas fa-ring text-xl text-verde-oscuro-intenso"></i>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-texto-oscuro">17:30 - Ceremonia Simbólica</h4>
-                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">La ceremonia emotiva con nuestros amigos y familia en los jardines.</p>
+                            <h4 class="text-xl font-bold text-texto-oscuro">12:30 - Ceremonia Oficial</h4>
+                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">Una ceremonia emotiva con nuestros amigos y familia a la orilla del Río Júcar.</p>
                             <p class="text-sm text-verde-oscuro-intenso mt-2 font-semibold flex items-center">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                Finca Los Olivos
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <a href="https://maps.app.goo.gl/CU512oxU7PbV9g6e9" target="_blank" class="hover:text-texto-oscuro transition-colors">Restaurante Playa Artificial</a>
                             </p>
                         </div>
                     </div>
                     <div class="flex gap-4">
                         <div class="w-10 h-10 bg-lima rounded-full flex-shrink-0 flex items-center justify-center text-texto-oscuro">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <i class="fas fa-utensils text-xl text-verde-oscuro-intenso"></i>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-texto-oscuro">19:00 - Cóctel y Banquete</h4>
-                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">Cena, brindis y mucha comida rica.</p>
+                            <h4 class="text-xl font-bold text-texto-oscuro">Cóctel y Banquete</h4>
+                            <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">Mucha comida rica, música en vivo y buen rollo</p>
                         </div>
                     </div>
                     <div class="flex gap-4">
                         <div class="w-10 h-10 bg-lima rounded-full flex-shrink-0 flex items-center justify-center text-texto-oscuro">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <i class="fas fa-music text-xl text-verde-oscuro-intenso"></i>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-texto-oscuro">23:00 - Fiesta y Barra Libre</h4>
+                            <h4 class="text-xl font-bold text-texto-oscuro">Fiesta y Barra Libre</h4>
                             <p class="text-verde-oscuro mt-1 text-lg leading-relaxed">¡A bailar hasta que el cuerpo aguante!</p>
                         </div>
                     </div>
@@ -267,35 +265,33 @@
     <section id="transport" class="py-16 px-4 md:px-8 bg-azul-cielo-light">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-serif text-center text-texto-oscuro mb-10 border-b-2 border-azul-cielo w-fit mx-auto pb-2">
-                Autobuses
+                Guaguas            
             </h2>
             <div class="bg-white/80 p-8 rounded-xl shadow-sm border-l-8 border-azul-cielo">
                 <div class="flex items-start mb-4">
                     <div class="p-3 bg-lima rounded-lg text-texto-oscuro mr-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                        <i class="fas fa-bus text-2xl text-verde-oscuro-intenso"></i>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-texto-oscuro mb-2">Olvídate del coche</h3>
+                        <h3 class="text-2xl font-bold text-texto-oscuro mb-2">El Sábado olvídate del coche</h3>
                         <p class="text-lg text-verde-oscuro mb-6">
-                            Queremos que disfrutéis al máximo sin preocupaciones. Pondremos autobuses a vuestra disposición.
+                            Queremos que disfrutéis al máximo sin preocupaciones. Pondremos autobuses a vuestra disposición. (los horarios son orientativos y pueden sufrir cambios, os avisaremos con tiempo si es así)
                         </p>
                     </div>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-menta p-5 rounded-lg border border-verde">
-                        <h4 class="font-bold text-xl mb-3 text-texto-oscuro">Ida (Hacia la Finca)</h4>
+                        <h4 class="font-bold text-xl mb-3 text-texto-oscuro">Ida (Hacia La Playa Artificial)</h4>
                         <ul class="space-y-3 text-lg text-verde-oscuro">
-                            <li class="flex justify-between border-b border-verde pb-2"><span>Plaza Mayor</span><span class="font-bold">16:30</span></li>
-                            <li class="flex justify-between border-b border-verde pb-2"><span>Hotel Central</span><span class="font-bold">16:45</span></li>
+                            <li class="flex justify-between border-b border-verde pb-2"><span>Hotel Torremanga</span><span class="font-bold">11:30</span></li>        
                         </ul>
                     </div>
                     <div class="bg-menta p-5 rounded-lg border border-verde">
-                        <h4 class="font-bold text-xl mb-3 text-texto-oscuro">Vuelta (Al centro)</h4>
+                        <h4 class="font-bold text-xl mb-3 text-texto-oscuro">Vuelta (Hacia Hotel Torremangana)</h4>
                         <ul class="space-y-3 text-lg text-verde-oscuro">
-                            <li class="flex justify-between border-b border-verde pb-2"><span>Primer Turno</span><span class="font-bold">01:00</span></li>
-                            <li class="flex justify-between border-b border-verde pb-2"><span>Segundo Turno</span><span class="font-bold">03:30</span></li>
-                            <li class="flex justify-between border-b border-verde pb-2"><span>Cierre de fiesta</span><span class="font-bold">05:00</span></li>
+                            <li class="flex justify-between border-b border-verde pb-2"><span>Primer Turno</span><span class="font-bold">23:00</span></li>
+                            <li class="flex justify-between border-b border-verde pb-2"><span>Cierre de fiesta</span><span class="font-bold">02:00</span></li>
                         </ul>
                     </div>
                 </div>
@@ -319,18 +315,22 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-texto-oscuro/80 to-transparent flex items-end p-4">
                             <h4 class="text-xl font-bold text-lima drop-shadow-md flex items-center w-full justify-between">
                                 Qué Ver
-                                <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                <i class="fas fa-chevron-down transform transition-transform duration-300 arrow-icon"></i>
                             </h4>
                         </div>
                     </div>
                     <div class="p-6 flex-grow bg-white">
-                        <p class="text-verde-oscuro font-medium mb-3">El casco antiguo colgado.</p>
+                        <p class="text-verde-oscuro font-medium mb-3">Casco Antiguo de Cuenca</p>
                         <div class="collapse-content">
-                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Cuenca es mágica. No os podéis perder las Casas Colgadas y el Puente de San Pablo para las mejores fotos.</p>
+                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">No os podéis perder el encanto de la ciudad de Cuenca por su casco antiguo, aquí os dejamos varias recomendaciones.</p>
                             <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2">Recomendamos:</h5>
                             <ul class="space-y-2 text-sm text-verde-oscuro">
-                                <li>• Mirador del Cerro del Socorro</li>
-                                <li>• Museo de Arte Abstracto</li>
+                                <li>• <a href="https://maps.app.goo.gl/uY2U6jEdHU5f3BCi9" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Parador Cuenca</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/iH2uFjBTC37tRUbL9" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Puente San Pablo</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/9pD6iJssPeHG2N368" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Casas Colgadas (que no colgantes)</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/wAoa6W6GeNPMSmrD8" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Museo de arte Abstracto Español</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/YNsX9hbJ1yE6KytWA" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Catedral y Plaza Mayor</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/oKPtyJnUM7tYcbJE9" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Barrio del castillo y Mirador de Cuenca</a></li>
                             </ul>
                         </div>
                         <p class="expand-label text-xs text-verde-oscuro-intenso mt-3 text-center group-hover:text-texto-oscuro">Pulsa para ver más</p>
@@ -344,18 +344,41 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-texto-oscuro/80 to-transparent flex items-end p-4">
                             <h4 class="text-xl font-bold text-lima drop-shadow-md flex items-center w-full justify-between">
                                 Dónde Comer
-                                <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                <i class="fas fa-chevron-down transform transition-transform duration-300 arrow-icon"></i>
                             </h4>
                         </div>
                     </div>
                     <div class="p-6 flex-grow bg-white">
-                        <p class="text-verde-oscuro font-medium mb-3">Gastronomía manchega top.</p>
+                        <p class="text-verde-oscuro font-medium mb-3">Gastronomía manchega y más.</p>
                         <div class="collapse-content">
-                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Aquí se come fuerte. El morteruelo y el ajoarriero son obligatorios. Reservad con tiempo.</p>
-                            <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2">Recomendamos:</h5>
+                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Cuenca tiene una oferta gastronómica increíble. Aquí os dejamos nuestras recomendaciones divididas por zonas.</p>
+                            
+                            <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2 mt-4">Casco Antiguo:</h5>
                             <ul class="space-y-2 text-sm text-verde-oscuro">
-                                <li>• Figón del Huécar</li>
-                                <li>• Taberna Albero</li>
+                                <li>• <a href="https://maps.app.goo.gl/KD4xnnwNhps45mjx5" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Taberna Albero</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/tWCxV2dhdhHdBJC88" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Mesón Plaza Mayor</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/qHQwgoiLE1dGfpEj6" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Posada de San José</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/tTdYrtqMaVtkiNYW7" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Casa Manzar</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/yaL4uNPtBPQXoALi7" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Piola</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/heBXFsPH4zesJHB78" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Mesón el caserío</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/re92yeiPvwSbmRgaA" target="_blank" class="hover:text-texto-oscuro transition-colors underline">María Morena</a></li>
+                            </ul>
+
+                            <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2 mt-4">Copas (Casco Antiguo):</h5>
+                            <ul class="space-y-2 text-sm text-verde-oscuro">
+                                <li>🍹 <a href="https://maps.app.goo.gl/M3qoiJDX3cim4e8r9" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Botánico Lounge Bar</a></li>
+                                <li>🍹 <a href="https://maps.app.goo.gl/1hvQ6XPLX2Bdt4zo8" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Los Clásicos Pub</a></li>
+                                <li>🍹 <a href="https://maps.app.goo.gl/qVSiTEZjEuaCmwk46" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Taberna Jovi</a></li>
+                            </ul>
+
+                            <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2 mt-4">Otros (Parte Baja):</h5>
+                            <ul class="space-y-2 text-sm text-verde-oscuro">
+                                <li>• <a href="https://maps.app.goo.gl/gGiSX15C37ZA1e8i7" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Restaurante San Julián</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/dFrYaT5wMP64zqi89" target="_blank" class="hover:text-texto-oscuro transition-colors underline">La Grotte</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/52jt9ZksHjRrLcbh7" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Restaurante Recreo Peral</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/nPJTCFvgeiuSU7pZ9" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Asador de Antonio</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/t1RJ3niMpPAubAhD9" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Kadon</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/ppe9yr7xLcxzhwiV9" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Mesón el bodegón</a></li>
                             </ul>
                         </div>
                         <p class="expand-label text-xs text-verde-oscuro-intenso mt-3 text-center group-hover:text-texto-oscuro">Pulsa para ver más</p>
@@ -369,18 +392,20 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-texto-oscuro/80 to-transparent flex items-end p-4">
                             <h4 class="text-xl font-bold text-lima drop-shadow-md flex items-center w-full justify-between">
                                 Peluquerías
-                                <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                <i class="fas fa-chevron-down transform transition-transform duration-300 arrow-icon"></i>
                             </h4>
                         </div>
                     </div>
                     <div class="p-6 flex-grow bg-white">
                         <p class="text-verde-oscuro font-medium mb-3">Para estar radiantes.</p>
                         <div class="collapse-content">
-                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Aquí tenéis un par de sitios de confianza cerca de los hoteles principales.</p>
+                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Aquí tenéis salones de confianza en Cuenca para que estéis perfectos el día de la boda.</p>
                             <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2">Recomendamos:</h5>
                             <ul class="space-y-2 text-sm text-verde-oscuro">
-                                <li>• Llongueras (C/ Carretería)</li>
-                                <li>• Salón Chic</li>
+                                <li>• <a href="https://maps.app.goo.gl/o1xKmcbmmVbXy79A9" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Adolfo Meder</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/pjuiThJTDTuE8HUW8" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Javier Peluqueros</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/N28vCmWxdxUWgRsa9" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Llanos Garrido</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/UtcasaTAkEY4uqc69" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Mímate</a></li>
                             </ul>
                         </div>
                         <p class="expand-label text-xs text-verde-oscuro-intenso mt-3 text-center group-hover:text-texto-oscuro">Pulsa para ver más</p>
@@ -394,18 +419,21 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-texto-oscuro/80 to-transparent flex items-end p-4">
                             <h4 class="text-xl font-bold text-lima drop-shadow-md flex items-center w-full justify-between">
                                 Alojamiento
-                                <svg class="w-6 h-6 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                <i class="fas fa-chevron-down transform transition-transform duration-300 arrow-icon"></i>
                             </h4>
                         </div>
                     </div>
                     <div class="p-6 flex-grow bg-white">
                         <p class="text-verde-oscuro font-medium mb-3">Donde descansar.</p>
                         <div class="collapse-content">
-                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Hoteles bien situados y con buen precio en el centro de Cuenca.</p>
+                            <p class="text-verde-oscuro-intenso text-sm mb-4 leading-relaxed">Hoteles y hostales bien situados con buen precio en Cuenca para que descanséis cómodamente.</p>
                             <h5 class="text-xs font-bold text-texto-oscuro uppercase tracking-wider mb-2">Recomendamos:</h5>
                             <ul class="space-y-2 text-sm text-verde-oscuro">
-                                <li>• Hotel Parador de Cuenca</li>
-                                <li>• NH Ciudad de Cuenca</li>
+                                <li>• <a href="https://maps.app.goo.gl/uUBmxgto8t7R8Ug88" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Hotel Torremangana</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/Gn8WPB9ZWNb1VVkB9" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Hostal Cánovas</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/K21HPor7dPLNLdQn7" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Hostal La Ribera del Júcar</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/xmcSfcy5A8wmxgt99" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Hotel Alfonso VIII</a></li>
+                                <li>• <a href="https://maps.app.goo.gl/rbMFpykj2WpgnFcQ7" target="_blank" class="hover:text-texto-oscuro transition-colors underline">Arévalo's Hotel</a></li>
                             </ul>
                         </div>
                         <p class="expand-label text-xs text-verde-oscuro-intenso mt-3 text-center group-hover:text-texto-oscuro">Pulsa para ver más</p>
@@ -414,17 +442,48 @@
             </div>
         </div>
     </section>
+    <!-- Sección Regalo -->
+    <section id="gift" class="py-16 px-4 md:px-8 bg-azul-cielo-light">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-serif text-center text-texto-oscuro mb-10 border-b-2 border-azul-cielo w-fit mx-auto pb-2">
+                Regalo
+            </h2>
+            <div class="bg-white/80 p-8 md:p-12 rounded-xl shadow-md border border-verde-light">
+                <div class="flex items-start mb-6">
+                    <div class="p-3 bg-lima rounded-lg text-verde-oscuro-intenso mr-4 flex-shrink-0">
+                        <i class="fas fa-gift text-3xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg md:text-xl text-verde-oscuro leading-relaxed mb-4">
+                            Para nosotros el mejor regalo es celebrar este día tan especial a vuestro lado.
+                        </p>
+                        <p class="text-lg md:text-xl text-verde-oscuro leading-relaxed">
+                            Si además os apetece tener un detalle y ayudarnos con nuestra Luna de Miel, podéis hacerlo por <span class="font-bold text-texto-oscuro">Bizum (sin concepto)</span> al <span class="font-bold text-texto-oscuro">646463808</span>, o en metálico el día de la boda.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 p-6 bg-menta rounded-lg border-l-4 border-verde text-center">
+                    <div class="flex items-center justify-center mb-3">
+                        <i class="fas fa-mobile-alt text-2xl text-verde-oscuro-intenso mr-3"></i>
+                        <span class="text-2xl md:text-3xl font-bold text-texto-oscuro tracking-wide">646 463 808</span>
+                    </div>
+                    <p class="text-sm text-verde-oscuro-intenso italic">Sin concepto en el Bizum, por favor</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- RSVP Section -->
     <section id="rsvp" class="relative py-20 text-white text-center px-4 overflow-hidden">
-        <div class="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Fondo Confirmación" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-texto-oscuro/85"></div>
+        <div class="absolute inset-0 bg-azul-cielo">
+          <img src="./image0.jpeg" alt="Fondo Confirmación" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-azul-cielo opacity-60"></div>
         </div>
 
         <div class="relative z-10 max-w-3xl mx-auto">
           <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">¿Nos acompañas?</h2>
-          <p class="text-xl md:text-2xl mb-10 text-verde-light">Por favor, confirma tu asistencia antes del 1 de Julio de 2026.</p>
+          <p class="text-xl md:text-2xl mb-10 text-verde-light">Por favor, confirma tu asistencia antes del 30 de Mayo de 2026.</p>
           
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSflfo29990iCAB9jZw85WqzuyM1aFHbB04cFPa3oq0dpTLnJw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="inline-block bg-lima text-texto-oscuro font-bold text-xl md:text-2xl px-10 py-5 rounded-full hover:bg-azul-cielo hover:scale-105 transition-all duration-200 shadow-2xl">
             Confirmar Asistencia Aquí
@@ -435,7 +494,7 @@
 
     <footer class="bg-texto-oscuro text-verde-light py-10 text-center border-t border-verde-oscuro">
         <p class="font-serif text-lg mb-2 text-lima">Marga & Jorge — 2026</p>
-        <p class="text-sm text-lima">Hecho con ❤️ para nuestra familia y amigos.</p>
+        <p class="text-sm text-lima">Hecho con <i class="fas fa-heart text-red-400"></i> para nuestra familia y amigos.</p>
     </footer>
 
     <!-- Scripts para lógica de interacción -->
@@ -450,10 +509,10 @@
             const isHidden = mobileMenu.classList.contains('hidden');
             if (isHidden) {
                 mobileMenu.classList.remove('hidden');
-                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+                menuIcon.className = 'fas fa-times text-2xl';
             } else {
                 mobileMenu.classList.add('hidden');
-                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+                menuIcon.className = 'fas fa-bars text-2xl';
             }
         });
 
@@ -461,7 +520,7 @@
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
-                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+                menuIcon.className = 'fas fa-bars text-2xl';
             });
         });
 
